@@ -15,7 +15,7 @@ namespace prjLojaCarros
     {
         int registroAtual = 0;
         int totalRegistros = 0;
-        DataTable dtLoja = new DataTable();
+        DataTable dtTipo = new DataTable();
         String connectionString = @"Server=prometheus.mssql.somee.com ;Database=prometheus;User Id=Maik_Ribeiro_SQLLogin_1;Password=4fqncedyef;";
         public frmTipo()
         {
@@ -23,13 +23,13 @@ namespace prjLojaCarros
         }
         private void navegar()
         {
-            txtCodTipo.Text = dtLoja.Rows[registroAtual][0].ToString();
-            txtTipo.Text = dtLoja.Rows[registroAtual][1].ToString();
+            txtCodTipo.Text = dtTipo.Rows[registroAtual][0].ToString();
+            txtTipo.Text = dtTipo.Rows[registroAtual][1].ToString();
         }
 
         private void carregar()
         {
-            dtLoja = new DataTable();
+            dtTipo = new DataTable();
             string sql = "SELECT * FROM cad_tipo";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -40,8 +40,8 @@ namespace prjLojaCarros
             {
                 using (reader = cmd.ExecuteReader())
                 {
-                    dtLoja.Load(reader);
-                    totalRegistros = dtLoja.Rows.Count;
+                    dtTipo.Load(reader);
+                    totalRegistros = dtTipo.Rows.Count;
                     registroAtual = 0;
                     navegar();
                 }
@@ -71,8 +71,8 @@ namespace prjLojaCarros
             {
                 using (reader = cmd.ExecuteReader())
                 {
-                    dtLoja.Load(reader);
-                    totalRegistros = dtLoja.Rows.Count;
+                    dtTipo.Load(reader);
+                    totalRegistros = dtTipo.Rows.Count;
                     registroAtual = 0;
                     navegar();
                 }

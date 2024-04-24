@@ -15,7 +15,7 @@ namespace prjLojaCarros
     {
         int registroAtual = 0;
         int totalRegistros = 0;
-        DataTable dtLoja = new DataTable();
+        DataTable dtMarca = new DataTable();
         String connectionString = @"Server=prometheus.mssql.somee.com ;Database=prometheus;User Id=Maik_Ribeiro_SQLLogin_1;Password=4fqncedyef;";
         public frmMarca()
         {
@@ -23,13 +23,13 @@ namespace prjLojaCarros
         }
         private void navegar()
         {
-            txtCodMarca.Text = dtLoja.Rows[registroAtual][0].ToString();
-            txtMarca.Text = dtLoja.Rows[registroAtual][1].ToString();
+            txtCodMarca.Text = dtMarca.Rows[registroAtual][0].ToString();
+            txtMarca.Text = dtMarca.Rows[registroAtual][1].ToString();
         }
 
         private void carregar()
         {
-            dtLoja = new DataTable();
+            dtMarca = new DataTable();
             string sql = "SELECT * FROM cad_marca";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -40,8 +40,8 @@ namespace prjLojaCarros
             {
                 using (reader = cmd.ExecuteReader())
                 {
-                    dtLoja.Load(reader);
-                    totalRegistros = dtLoja.Rows.Count;
+                    dtMarca.Load(reader);
+                    totalRegistros = dtMarca.Rows.Count;
                     registroAtual = 0;
                     navegar();
                 }
@@ -57,7 +57,8 @@ namespace prjLojaCarros
         }
 
         private void frmMarca_Load(object sender, EventArgs e)
-        { 
+        {
+            carregar();
             btnSalvar.Enabled = false;
             txtCodMarca.Enabled = false;
             txtMarca.Enabled = false;
@@ -71,8 +72,8 @@ namespace prjLojaCarros
             {
                 using (reader = cmd.ExecuteReader())
                 {
-                    dtLoja.Load(reader);
-                    totalRegistros = dtLoja.Rows.Count;
+                    dtMarca.Load(reader);
+                    totalRegistros = dtMarca.Rows.Count;
                     registroAtual = 0;
                     navegar();
                 }
