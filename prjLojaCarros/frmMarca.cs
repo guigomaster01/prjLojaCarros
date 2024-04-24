@@ -57,36 +57,7 @@ namespace prjLojaCarros
         }
 
         private void frmMarca_Load(object sender, EventArgs e)
-        {
-            //btnSalvar.Enabled = false;
-            //txtCodMarca.Enabled = false;
-            //txtMarca.Enabled = false;
-
-            //string sql = "SELECT * FROM cad_marca";
-            //SqlConnection con = new SqlConnection(connectionString);
-            //SqlCommand cmd = new SqlCommand(sql, con);
-            //cmd.CommandType = CommandType.Text;
-            //SqlDataReader reader;
-            //con.Open();
-
-            //try
-            //{
-            //    reader = cmd.ExecuteReader();
-            //    if (reader.Read())
-            //    {
-            //        txtCodMarca.Text = reader[0].ToString();
-            //        txtMarca.Text = reader[1].ToString();
-            //    }
-            //}
-            //catch (SqlException ex)
-            //{
-            //    MessageBox.Show("Erro ao listar Marcas: " + ex.ToString());
-            //}
-            //finally
-            //{
-            //    con.Close();
-            //}
-
+        { 
             btnSalvar.Enabled = false;
             txtCodMarca.Enabled = false;
             txtMarca.Enabled = false;
@@ -125,6 +96,12 @@ namespace prjLojaCarros
             txtCodMarca.Enabled = false;
             txtMarca.Enabled = true;
             txtMarca.Text = "";
+            btnAnterior.Enabled = false;
+            btnProximo.Enabled = false;
+            btnPrimeiro.Enabled = false;
+            btnUltimo.Enabled = false;
+            btnCancelar.Enabled = true;
+            btnCancelar.Visible = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -177,6 +154,12 @@ namespace prjLojaCarros
             txtMarca.Enabled = true;
             btnAtualizar.Enabled = true;
             btnAtualizar.Visible = true;
+            btnCancelar.Enabled = true;
+            btnCancelar.Visible = true;
+            btnAnterior.Enabled = false;
+            btnProximo.Enabled = false;
+            btnPrimeiro.Enabled = false;
+            btnUltimo.Enabled = false;
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -299,6 +282,24 @@ namespace prjLojaCarros
             btnAtualizar.Enabled = false;
             btnAtualizar.Visible = false;
             carregar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnSalvar.Enabled = false;
+            txtCodMarca.Enabled = false;
+            txtMarca.Enabled = false;
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
+            btnCancelar.Enabled = false;
+            btnCancelar.Visible = false;
+            btnAnterior.Enabled = true;
+            btnProximo.Enabled = true;
+            btnPrimeiro.Enabled = true;
+            btnUltimo.Enabled = true;
         }
     }
 }

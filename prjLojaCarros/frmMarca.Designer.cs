@@ -43,6 +43,7 @@ namespace prjLojaCarros
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnPrimeiro = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,12 +187,24 @@ namespace prjLojaCarros
             this.btnAtualizar.Visible = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(555, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(128, 43);
+            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // frmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 323);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnUltimo);
             this.Controls.Add(this.btnProximo);
@@ -229,5 +242,6 @@ namespace prjLojaCarros
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimeiro;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
