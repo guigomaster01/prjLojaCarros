@@ -33,20 +33,20 @@ namespace prjLojaCarros
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tipoVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTipo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -55,40 +55,50 @@ namespace prjLojaCarros
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.marcaVeículoToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.tipoVeículoToolStripMenuItem,
-            this.toolStripMenuItem2});
+            this.btnTipo,
+            this.toolStripMenuItem2,
+            this.btnSair});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // marcaVeículoToolStripMenuItem
             // 
             this.marcaVeículoToolStripMenuItem.Name = "marcaVeículoToolStripMenuItem";
-            this.marcaVeículoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.marcaVeículoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.marcaVeículoToolStripMenuItem.Text = "Marca - Veículo";
             this.marcaVeículoToolStripMenuItem.Click += new System.EventHandler(this.marcaVeículoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
             // 
-            // tipoVeículoToolStripMenuItem
+            // btnTipo
             // 
-            this.tipoVeículoToolStripMenuItem.Name = "tipoVeículoToolStripMenuItem";
-            this.tipoVeículoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.tipoVeículoToolStripMenuItem.Text = "Tipo - Veículo";
+            this.btnTipo.Name = "btnTipo";
+            this.btnTipo.Size = new System.Drawing.Size(224, 26);
+            this.btnTipo.Text = "Tipo - Veículo";
+            this.btnTipo.Click += new System.EventHandler(this.btnTipo_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(224, 26);
+            this.btnSair.Text = "Sair";
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -108,8 +118,9 @@ namespace prjLojaCarros
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaVeículoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem tipoVeículoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnTipo;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem btnSair;
     }
 }
 

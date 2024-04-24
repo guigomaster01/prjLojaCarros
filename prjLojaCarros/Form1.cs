@@ -22,5 +22,16 @@ namespace prjLojaCarros
             frmMarca marca = new frmMarca();
             marca.Show();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnTipo_Click(object sender, EventArgs e)
+        {
+            frmTipo tipo = new frmTipo();
+            tipo.Show();
+        }
     }
 }

@@ -11,26 +11,26 @@ using System.Windows.Forms;
 
 namespace prjLojaCarros
 {
-    public partial class frmMarca : Form
+    public partial class frmTipo : Form
     {
         int registroAtual = 0;
         int totalRegistros = 0;
         DataTable dtLoja = new DataTable();
         String connectionString = @"Server=prometheus.mssql.somee.com ;Database=prometheus;User Id=Maik_Ribeiro_SQLLogin_1;Password=4fqncedyef;";
-        public frmMarca()
+        public frmTipo()
         {
             InitializeComponent();
         }
         private void navegar()
         {
-            txtCodMarca.Text = dtLoja.Rows[registroAtual][0].ToString();
-            txtMarca.Text = dtLoja.Rows[registroAtual][1].ToString();
+            txtCodTipo.Text = dtLoja.Rows[registroAtual][0].ToString();
+            txtTipo.Text = dtLoja.Rows[registroAtual][1].ToString();
         }
 
         private void carregar()
         {
             dtLoja = new DataTable();
-            string sql = "SELECT * FROM cad_marca";
+            string sql = "SELECT * FROM cad_tipo";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.CommandType = CommandType.Text;
@@ -56,12 +56,12 @@ namespace prjLojaCarros
             }
         }
 
-        private void frmMarca_Load(object sender, EventArgs e)
-        { 
+        private void frmTipo_Load(object sender, EventArgs e)
+        {
             btnSalvar.Enabled = false;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = false;
-            string sql = "SELECT * FROM cad_marca";
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = false;
+            string sql = "SELECT * FROM cad_tipo";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.CommandType = CommandType.Text;
@@ -93,9 +93,9 @@ namespace prjLojaCarros
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
             btnSalvar.Enabled = true;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = true;
-            txtMarca.Text = "";
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = true;
+            txtTipo.Text = "";
             btnAnterior.Enabled = false;
             btnProximo.Enabled = false;
             btnPrimeiro.Enabled = false;
@@ -106,9 +106,9 @@ namespace prjLojaCarros
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO cad_marca (cmar_descricao) " +
+            string sql = "INSERT INTO cad_tipo (ctip_descricao) " +
                          "VALUES " +
-                         "('" + txtMarca.Text + "')";
+                         "('" + txtTipo.Text + "')";
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
@@ -119,13 +119,13 @@ namespace prjLojaCarros
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Marca cadastrada com sucesso");
+                    MessageBox.Show("Tipo cadastrado com sucesso");
                 }
 
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Erro ao cadastrar marca: " + ex);
+                MessageBox.Show("Erro ao cadastrar tipo: " + ex);
 
             }
             finally
@@ -137,8 +137,8 @@ namespace prjLojaCarros
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
             btnSalvar.Enabled = false;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = false;
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = false;
             btnCancelar.Enabled = false;
             btnCancelar.Visible = false;
             btnAtualizar.Enabled = false;
@@ -156,8 +156,8 @@ namespace prjLojaCarros
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
             btnSalvar.Enabled = false;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = true;
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = true;
             btnAtualizar.Enabled = true;
             btnAtualizar.Visible = true;
             btnCancelar.Enabled = true;
@@ -170,7 +170,7 @@ namespace prjLojaCarros
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            string sql = "UPDATE cad_marca SET cmar_descricao = ('" + txtMarca.Text + "') WHERE cmar_id = " + txtCodMarca.Text;
+            string sql = "UPDATE cad_tipo SET ctip_descricao = ('" + txtTipo.Text + "') WHERE ctip_id = " + txtCodTipo.Text;
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
@@ -181,13 +181,13 @@ namespace prjLojaCarros
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Marca atualizada com sucesso");
+                    MessageBox.Show("Tipo atualizado com sucesso");
                 }
 
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Erro ao atualizar marca: " + ex);
+                MessageBox.Show("Erro ao atualizar tipo: " + ex);
 
             }
             finally
@@ -199,8 +199,8 @@ namespace prjLojaCarros
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
             btnSalvar.Enabled = false;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = false;
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = false;
             btnCancelar.Enabled = false;
             btnCancelar.Visible = false;
             btnAtualizar.Enabled = false;
@@ -250,10 +250,10 @@ namespace prjLojaCarros
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            DialogResult confirma = MessageBox.Show("Deseja excluir essa marca?", "Excluir Marca?", MessageBoxButtons.YesNo);
+            DialogResult confirma = MessageBox.Show("Deseja excluir essa tipo?", "Excluir Tipo?", MessageBoxButtons.YesNo);
             if (confirma == DialogResult.Yes)
             {
-                string sql = "DELETE FROM cad_marca WHERE cmar_id = " + txtCodMarca.Text;
+                string sql = "DELETE FROM cad_tipo WHERE ctip_id = " + txtCodTipo.Text;
                 SqlConnection conn = new SqlConnection(connectionString);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.CommandType = CommandType.Text;
@@ -264,13 +264,13 @@ namespace prjLojaCarros
                     int i = cmd.ExecuteNonQuery();
                     if (i > 0)
                     {
-                        MessageBox.Show("Marca deletada com sucesso");
+                        MessageBox.Show("Tipo deletada com sucesso");
                     }
 
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("Erro ao deletar marca: " + ex);
+                    MessageBox.Show("Erro ao deletar tipo: " + ex);
 
                 }
                 finally
@@ -289,8 +289,8 @@ namespace prjLojaCarros
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
             btnSalvar.Enabled = false;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = false;
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = false;
             btnAtualizar.Enabled = false;
             btnAtualizar.Visible = false;
             carregar();
@@ -302,8 +302,8 @@ namespace prjLojaCarros
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
             btnSalvar.Enabled = false;
-            txtCodMarca.Enabled = false;
-            txtMarca.Enabled = false;
+            txtCodTipo.Enabled = false;
+            txtTipo.Enabled = false;
             btnAtualizar.Enabled = false;
             btnAtualizar.Visible = false;
             btnCancelar.Enabled = false;
