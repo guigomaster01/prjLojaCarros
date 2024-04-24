@@ -40,8 +40,9 @@ namespace prjLojaCarros
             this.label1 = new System.Windows.Forms.Label();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
             this.btnPrimeiro = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@ namespace prjLojaCarros
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -72,6 +74,7 @@ namespace prjLojaCarros
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSalvar
             // 
@@ -118,7 +121,7 @@ namespace prjLojaCarros
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(28, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Descrição";
             // 
@@ -128,7 +131,7 @@ namespace prjLojaCarros
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(25, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código Marca";
             // 
@@ -140,6 +143,7 @@ namespace prjLojaCarros
             this.btnUltimo.TabIndex = 15;
             this.btnUltimo.Text = ">>";
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnProximo
             // 
@@ -149,15 +153,17 @@ namespace prjLojaCarros
             this.btnProximo.TabIndex = 14;
             this.btnProximo.Text = ">";
             this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
-            // button5
+            // btnAnterior
             // 
-            this.button5.Location = new System.Drawing.Point(322, 247);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 32);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "<";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAnterior.Location = new System.Drawing.Point(322, 247);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 32);
+            this.btnAnterior.TabIndex = 13;
+            this.btnAnterior.Text = "<";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnPrimeiro
             // 
@@ -167,6 +173,18 @@ namespace prjLojaCarros
             this.btnPrimeiro.TabIndex = 12;
             this.btnPrimeiro.Text = "<<";
             this.btnPrimeiro.UseVisualStyleBackColor = true;
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(421, 14);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(128, 43);
+            this.btnAtualizar.TabIndex = 16;
+            this.btnAtualizar.Text = "&Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Visible = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // frmMarca
             // 
@@ -174,9 +192,10 @@ namespace prjLojaCarros
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 323);
             this.ControlBox = false;
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnUltimo);
             this.Controls.Add(this.btnProximo);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnPrimeiro);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSalvar);
@@ -207,7 +226,8 @@ namespace prjLojaCarros
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUltimo;
         private System.Windows.Forms.Button btnProximo;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimeiro;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
